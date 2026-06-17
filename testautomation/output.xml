@@ -1,0 +1,1141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0 (Python 3.10.12 on linux)" generated="2026-06-12T18:43:28.886067" rpa="false" schemaversion="5">
+<suite id="s1" name="FlipkartTestSuite" source="/home/pilaptop-27/testautomation/Testsuite/FlipkartTestSuite.robot">
+<test id="s1-t1" name="01 HomePage - Open Flipkart And Close Login Popup" line="30">
+<kw name="Set Timestamp" owner="Common" type="SETUP">
+<kw name="Get Time" owner="BuiltIn">
+<var>${timestamp}</var>
+<arg>epoch</arg>
+<doc>Returns the given time in the requested format.</doc>
+<status status="NOT RUN" start="2026-06-12T18:43:29.474960" elapsed="0.000330"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>Test started at epoch: ${timestamp}</arg>
+<arg>console=yes</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2026-06-12T18:43:29.475758" elapsed="0.000462"/>
+</kw>
+<doc>Logs test start timestamp for traceability</doc>
+<status status="PASS" start="2026-06-12T18:43:29.470515" elapsed="0.005974"/>
+</kw>
+<kw name="Step 1- Open Flipkart" owner="01HomePageTC">
+<kw name="Open Flipkart Website" owner="HomePage">
+<kw name="Log Step" owner="Common">
+<kw name="Log" owner="BuiltIn">
+<arg>*** STEP: ${message} ***</arg>
+<arg>console=yes</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2026-06-12T18:43:29.479337" elapsed="0.000250"/>
+</kw>
+<arg>Open Flipkart website</arg>
+<doc>Standardized step logging</doc>
+<status status="PASS" start="2026-06-12T18:43:29.478766" elapsed="0.000961"/>
+</kw>
+<kw name="Open Browser With Proxy" owner="Common">
+<kw name="Log" owner="BuiltIn">
+<arg>Opening browser for URL: ${url}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2026-06-12T18:43:29.480643" elapsed="0.000173"/>
+</kw>
+<kw name="Load Proxy Pool From Environment" owner="ProxyManager">
+<doc>Load rotating proxy pool from environment variables.</doc>
+<status status="NOT RUN" start="2026-06-12T18:43:29.481129" elapsed="0.000119"/>
+</kw>
+<kw name="Open Chrome With Proxy" owner="BrowserFactory">
+<arg>${url}</arg>
+<arg>incognito=${TRUE}</arg>
+<arg>rotate_proxy=${rotate_proxy}</arg>
+<doc>High-level keyword used by Common.robot.
+Creates Chrome with proxy and registers it with SeleniumLibrary.</doc>
+<status status="NOT RUN" start="2026-06-12T18:43:29.481572" elapsed="0.000389"/>
+</kw>
+<kw name="Set Selenium Implicit Wait" owner="SeleniumLibrary">
+<arg>0 seconds</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="NOT RUN" start="2026-06-12T18:43:29.482447" elapsed="0.000497"/>
+</kw>
+<kw name="Set Selenium Timeout" owner="SeleniumLibrary">
+<arg>${EXPLICIT_WAIT}</arg>
+<doc>Sets the timeout that is used by various keywords.</doc>
+<status status="NOT RUN" start="2026-06-12T18:43:29.483943" elapsed="0.000311"/>
+</kw>
+<arg>${url}</arg>
+<doc>Opens Chrome with proxy, stealth flags, and registers driver with SeleniumLibrary</doc>
+<status status="PASS" start="2026-06-12T18:43:29.480083" elapsed="0.004384"/>
+</kw>
+<kw name="Wait For Element" owner="Common">
+<kw name="Wait For Element Visible" owner="WaitUtils">
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<status status="NOT RUN" start="2026-06-12T18:43:29.485809" elapsed="0.000202"/>
+</kw>
+<arg>${LOC_SEARCH_INPUT}</arg>
+<doc>Explicit wait wrapper for visible elements</doc>
+<status status="PASS" start="2026-06-12T18:43:29.485054" elapsed="0.001092"/>
+</kw>
+<arg>${URL}</arg>
+<doc>Launches Chrome and navigates to Flipkart base URL</doc>
+<status status="PASS" start="2026-06-12T18:43:29.477820" elapsed="0.008468"/>
+</kw>
+<doc>Launch browser and open Flipkart home page</doc>
+<status status="PASS" start="2026-06-12T18:43:29.477149" elapsed="0.009241"/>
+</kw>
+<kw name="Step 2- Close login popup" owner="01HomePageTC">
+<kw name="Close Login Popup" owner="HomePage">
+<kw name="Log Step" owner="Common">
+<kw name="Log" owner="BuiltIn">
+<arg>*** STEP: ${message} ***</arg>
+<arg>console=yes</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2026-06-12T18:43:29.490774" elapsed="0.000333"/>
+</kw>
+<arg>Close login popup if displayed</arg>
+<doc>Standardized step logging</doc>
+<status status="PASS" start="2026-06-12T18:43:29.490100" elapsed="0.001232"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Wait For Element Present" owner="WaitUtils">
+<arg>${LOC_LOGIN_MODAL}</arg>
+<arg>10s</arg>
+<status status="NOT RUN" start="2026-06-12T18:43:29.492136" elapsed="0.000254"/>
+</kw>
+<var>${modal_visible}</var>
+<arg>Wait For Element Present</arg>
+<arg>${LOC_LOGIN_MODAL}</arg>
+<arg>10s</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="NOT RUN" start="2026-06-12T18:43:29.491724" elapsed="0.000783"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${modal_visible}">
+<kw name="Dismiss Login Popup If Visible" owner="FlipkartActions">
+<status status="NOT RUN" start="2026-06-12T18:43:29.493354" elapsed="0.000149"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>Login popup not displayed; continuing</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2026-06-12T18:43:29.493859" elapsed="0.000157"/>
+</kw>
+<return>
+<status status="PASS" start="2026-06-12T18:43:29.494210" elapsed="0.000073"/>
+</return>
+<status status="PASS" start="2026-06-12T18:43:29.492813" elapsed="0.001576"/>
+</branch>
+<status status="PASS" start="2026-06-12T18:43:29.492733" elapsed="0.001779"/>
+</if>
+<kw name="Wait For Element" owner="Common">
+<kw name="Wait For Element Visible" owner="WaitUtils">
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<status status="NOT RUN" start="2026-06-12T18:43:29.495479" elapsed="0.000186"/>
+</kw>
+<arg>${LOC_LOGIN_CLOSE_BTN}</arg>
+<arg>10s</arg>
+<doc>Explicit wait wrapper for visible elements</doc>
+<status status="PASS" start="2026-06-12T18:43:29.494864" elapsed="0.000939"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Click Element Safely" owner="Common">
+<kw name="Safe Click Element" owner="WaitUtils">
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<status status="NOT RUN" start="2026-06-12T18:43:29.497086" elapsed="0.000177"/>
+</kw>
+<arg>${LOC_LOGIN_CLOSE_BTN}</arg>
+<doc>Scrolls into view and clicks with retry-safe explicit waits</doc>
+<status status="PASS" start="2026-06-12T18:43:29.496546" elapsed="0.000847"/>
+</kw>
+<var>${clicked}</var>
+<arg>Click Element Safely</arg>
+<arg>${LOC_LOGIN_CLOSE_BTN}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="NOT RUN" start="2026-06-12T18:43:29.496140" elapsed="0.001344"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${clicked}">
+<kw name="Get WebElement" owner="SeleniumLibrary">
+<var>${close_btn}</var>
+<arg>${LOC_LOGIN_CLOSE_BTN}</arg>
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<status status="NOT RUN" start="2026-06-12T18:43:29.497996" elapsed="0.000157"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<arg>arguments[0].click();</arg>
+<arg>ARGUMENTS</arg>
+<arg>${close_btn}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="NOT RUN" start="2026-06-12T18:43:29.498463" elapsed="0.000405"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>Login close clicked via JavaScript fallback</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2026-06-12T18:43:29.499654" elapsed="0.000400"/>
+</kw>
+<status status="PASS" start="2026-06-12T18:43:29.497690" elapsed="0.002728"/>
+</branch>
+<status status="PASS" start="2026-06-12T18:43:29.497654" elapsed="0.003029"/>
+</if>
+<kw name="Wait Until Element Is Not Visible" owner="SeleniumLibrary">
+<arg>${LOC_LOGIN_MODAL}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is not visible.</doc>
+<status status="NOT RUN" start="2026-06-12T18:43:29.501216" elapsed="0.000648"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>Login popup closed successfully</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2026-06-12T18:43:29.502533" elapsed="0.000234"/>
+</kw>
+<doc>Closes login modal using top-right close icon when visible</doc>
+<status status="PASS" start="2026-06-12T18:43:29.489161" elapsed="0.013978"/>
+</kw>
+<doc>Close login module by clicking cross icon on top right of pop-up</doc>
+<status status="PASS" start="2026-06-12T18:43:29.487294" elapsed="0.016056"/>
+</kw>
+<kw name="Take Screenshot On Failure" owner="Common" type="TEARDOWN">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<arg>${SCREENSHOT_DIR}${/}failure_{index}.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="NOT RUN" start="2026-06-12T18:43:29.507045" elapsed="0.000273"/>
+</kw>
+<var>${status}</var>
+<arg>Capture Page Screenshot</arg>
+<arg>${SCREENSHOT_DIR}${/}failure_{index}.png</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="NOT RUN" start="2026-06-12T18:43:29.506307" elapsed="0.001165"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Log" owner="BuiltIn">
+<arg>Screenshot capture failed</arg>
+<arg>WARN</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2026-06-12T18:43:29.508485" elapsed="0.000201"/>
+</kw>
+<arg>not ${status}</arg>
+<arg>Log</arg>
+<arg>Screenshot capture failed</arg>
+<arg>WARN</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="NOT RUN" start="2026-06-12T18:43:29.508006" elapsed="0.000871"/>
+</kw>
+<doc>Captures screenshot when a step fails; used in teardown hooks</doc>
+<status status="PASS" start="2026-06-12T18:43:29.504869" elapsed="0.004225"/>
+</kw>
+<doc>HomePage: launch Flipkart and dismiss login modal</doc>
+<tag>e2e</tag>
+<tag>flipkart</tag>
+<tag>homepage</tag>
+<tag>regression</tag>
+<tag>smoke</tag>
+<status status="PASS" start="2026-06-12T18:43:29.467576" elapsed="0.041696"/>
+</test>
+<test id="s1-t2" name="02 SearchPage - Search Mobile And Verify Results" line="36">
+<kw name="Set Timestamp" owner="Common" type="SETUP">
+<kw name="Get Time" owner="BuiltIn">
+<var>${timestamp}</var>
+<arg>epoch</arg>
+<doc>Returns the given time in the requested format.</doc>
+<status status="NOT RUN" start="2026-06-12T18:43:29.512295" elapsed="0.000188"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>Test started at epoch: ${timestamp}</arg>
+<arg>console=yes</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2026-06-12T18:43:29.512811" elapsed="0.000233"/>
+</kw>
+<doc>Logs test start timestamp for traceability</doc>
+<status status="PASS" start="2026-06-12T18:43:29.511673" elapsed="0.001503"/>
+</kw>
+<kw name="Step 3- Click global search module" owner="02SearchPageTC">
+<kw name="Click Search Box" owner="HomePage">
+<kw name="Log Step" owner="Common">
+<kw name="Log" owner="BuiltIn">
+<arg>*** STEP: ${message} ***</arg>
+<arg>console=yes</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2026-06-12T18:43:29.515471" elapsed="0.000511"/>
+</kw>
+<arg>Click search box</arg>
+<doc>Standardized step logging</doc>
+<status status="PASS" start="2026-06-12T18:43:29.514847" elapsed="0.001507"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Wait Until Element Is Not Visible" owner="SeleniumLibrary">
+<arg>${LOC_LOGIN_MODAL}</arg>
+<arg>5s</arg>
+<doc>Waits until the element ``locator`` is not visible.</doc>
+<status status="NOT RUN" start="2026-06-12T18:43:29.517930" elapsed="0.000454"/>
+</kw>
+<arg>Wait Until Element Is Not Visible</arg>
+<arg>${LOC_LOGIN_MODAL}</arg>
+<arg>5s</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="NOT RUN" start="2026-06-12T18:43:29.517183" elapsed="0.001369"/>
+</kw>
+<kw name="Wait For Element" owner="Common">
+<kw name="Wait For Element Visible" owner="WaitUtils">
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<status status="NOT RUN" start="2026-06-12T18:43:29.519666" elapsed="0.000210"/>
+</kw>
+<arg>${LOC_SEARCH_INPUT}</arg>
+<doc>Explicit wait wrapper for visible elements</doc>
+<status status="PASS" start="2026-06-12T18:43:29.519031" elapsed="0.001129"/>
+</kw>
+<kw name="Click Element Safely" owner="Common">
+<kw name="Safe Click Element" owner="WaitUtils">
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<status status="NOT RUN" start="2026-06-12T18:43:29.522183" elapsed="0.000417"/>
+</kw>
+<arg>${LOC_SEARCH_INPUT}</arg>
+<doc>Scrolls into view and clicks with retry-safe explicit waits</doc>
+<status status="PASS" start="2026-06-12T18:43:29.520998" elapsed="0.001875"/>
+</kw>
+<doc>Focuses the global search input</doc>
+<status status="PASS" start="2026-06-12T18:43:29.514179" elapsed="0.008911"/>
+</kw>
+<doc>Click on the global search input on home page</doc>
+<status status="PASS" start="2026-06-12T18:43:29.513622" elapsed="0.009669"/>
+</kw>
+<kw name="Step 4- Search with keyword mobile" owner="02SearchPageTC">
+<kw name="Input Text Safely" owner="Common">
+<kw name="Safe Input Text" owner="WaitUtils">
+<arg>${locator}</arg>
+<arg>${text}</arg>
+<arg>clear=${TRUE}</arg>
+<arg>timeout=${timeout}</arg>
+<status status="NOT RUN" start="2026-06-12T18:43:29.525295" elapsed="0.000332"/>
+</kw>
+<arg>${LOC_SEARCH_INPUT}</arg>
+<arg>${SEARCH_KEYWORD}</arg>
+<doc>Clears and types text using explicit waits</doc>
+<status status="PASS" start="2026-06-12T18:43:29.524616" elapsed="0.001218"/>
+</kw>
+<kw name="Press Keys" owner="SeleniumLibrary">
+<arg>${LOC_SEARCH_INPUT}</arg>
+<arg>RETURN</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="NOT RUN" start="2026-06-12T18:43:29.526499" elapsed="0.000271"/>
+</kw>
+<kw name="Wait For Element Present" owner="WaitUtils">
+<arg>css:div[data-id]</arg>
+<arg>${EXPLICIT_WAIT}</arg>
+<status status="NOT RUN" start="2026-06-12T18:43:29.527125" elapsed="0.000203"/>
+</kw>
+<doc>Search products using the configured keyword</doc>
+<status status="PASS" start="2026-06-12T18:43:29.523966" elapsed="0.003486"/>
+</kw>
+<kw name="Step 5- Verify search results message" owner="02SearchPageTC">
+<kw name="Verify Search Result Message" owner="SearchPage">
+<kw name="Log Step" owner="Common">
+<kw name="Log" owner="BuiltIn">
+<arg>*** STEP: ${message} ***</arg>
+<arg>console=yes</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2026-06-12T18:43:29.529803" elapsed="0.000265"/>
+</kw>
+<arg>Verify search result summary message</arg>
+<doc>Standardized step logging</doc>
+<status status="PASS" start="2026-06-12T18:43:29.529024" elapsed="0.001219"/>
+</kw>
+<kw name="Wait For Page To Contain" owner="WaitUtils">
+<arg>${pagination_text}</arg>
+<arg>${EXPLICIT_WAIT}</arg>
+<status status="NOT RUN" start="2026-06-12T18:43:29.530564" elapsed="0.000188"/>
+</kw>
+<kw name="Wait For Page To Contain" owner="WaitUtils">
+<arg>${keyword}</arg>
+<arg>${EXPLICIT_WAIT}</arg>
+<status status="NOT RUN" start="2026-06-12T18:43:29.531060" elapsed="0.000187"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${body}</var>
+<arg>tag:body</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-06-12T18:43:29.531570" elapsed="0.000652"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${body}</arg>
+<arg>${pagination_text}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="NOT RUN" start="2026-06-12T18:43:29.533069" elapsed="0.000450"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${body}</arg>
+<arg>${keyword}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="NOT RUN" start="2026-06-12T18:43:29.534082" elapsed="0.000313"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>Search summary validated successfully</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2026-06-12T18:43:29.534930" elapsed="0.000214"/>
+</kw>
+<arg>Showing 1 – 24 of</arg>
+<arg>${SEARCH_KEYWORD}</arg>
+<doc>Verifies search summary contains expected pagination and keyword text</doc>
+<status status="PASS" start="2026-06-12T18:43:29.528470" elapsed="0.006856"/>
+</kw>
+<kw name="Ensure Product Cards Loaded" owner="FlipkartActions">
+<arg>${COMPARE_PRODUCT_INDEX_2}</arg>
+<status status="NOT RUN" start="2026-06-12T18:43:29.535897" elapsed="0.000252"/>
+</kw>
+<doc>Verify search summary shows pagination and keyword in results message</doc>
+<status status="PASS" start="2026-06-12T18:43:29.527883" elapsed="0.008463"/>
+</kw>
+<kw name="Take Screenshot On Failure" owner="Common" type="TEARDOWN">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<arg>${SCREENSHOT_DIR}${/}failure_{index}.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="NOT RUN" start="2026-06-12T18:43:29.539912" elapsed="0.000234"/>
+</kw>
+<var>${status}</var>
+<arg>Capture Page Screenshot</arg>
+<arg>${SCREENSHOT_DIR}${/}failure_{index}.png</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="NOT RUN" start="2026-06-12T18:43:29.539135" elapsed="0.001191"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Log" owner="BuiltIn">
+<arg>Screenshot capture failed</arg>
+<arg>WARN</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2026-06-12T18:43:29.541319" elapsed="0.000215"/>
+</kw>
+<arg>not ${status}</arg>
+<arg>Log</arg>
+<arg>Screenshot capture failed</arg>
+<arg>WARN</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="NOT RUN" start="2026-06-12T18:43:29.540737" elapsed="0.000914"/>
+</kw>
+<doc>Captures screenshot when a step fails; used in teardown hooks</doc>
+<status status="PASS" start="2026-06-12T18:43:29.537643" elapsed="0.004140"/>
+</kw>
+<doc>SearchPage: open search, search mobile, verify results summary</doc>
+<tag>e2e</tag>
+<tag>flipkart</tag>
+<tag>regression</tag>
+<tag>searchpage</tag>
+<tag>smoke</tag>
+<status status="PASS" start="2026-06-12T18:43:29.510077" elapsed="0.031827"/>
+</test>
+<test id="s1-t3" name="03 SearchPage ProductPage CartPage - Compare Add To Cart And Verify Cart" line="43">
+<kw name="Set Timestamp" owner="Common" type="SETUP">
+<kw name="Get Time" owner="BuiltIn">
+<var>${timestamp}</var>
+<arg>epoch</arg>
+<doc>Returns the given time in the requested format.</doc>
+<status status="NOT RUN" start="2026-06-12T18:43:29.544307" elapsed="0.000238"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>Test started at epoch: ${timestamp}</arg>
+<arg>console=yes</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2026-06-12T18:43:29.544886" elapsed="0.000240"/>
+</kw>
+<doc>Logs test start timestamp for traceability</doc>
+<status status="PASS" start="2026-06-12T18:43:29.543607" elapsed="0.001685"/>
+</kw>
+<kw name="Step 6- Compare 10th and 11th products" owner="03SearchPageProductPageCartPageTC">
+<kw name="Reset Compare Selection State" owner="FlipkartActions">
+<status status="NOT RUN" start="2026-06-12T18:43:29.546345" elapsed="0.000115"/>
+</kw>
+<kw name="Select Product For Compare" owner="SearchPage">
+<kw name="Log Step" owner="Common">
+<kw name="Log" owner="BuiltIn">
+<arg>*** STEP: ${message} ***</arg>
+<arg>console=yes</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2026-06-12T18:43:29.547909" elapsed="0.000226"/>
+</kw>
+<arg>Select compare checkbox for product index ${index}</arg>
+<doc>Standardized step logging</doc>
+<status status="PASS" start="2026-06-12T18:43:29.547446" elapsed="0.000830"/>
+</kw>
+<kw name="Select Compare On Card Index" owner="FlipkartActions">
+<var>${product_name}</var>
+<arg>${index}</arg>
+<status status="NOT RUN" start="2026-06-12T18:43:29.548556" elapsed="0.000141"/>
+</kw>
+<return>
+<value>${product_name}</value>
+<status status="PASS" start="2026-06-12T18:43:29.548820" elapsed="0.000057"/>
+</return>
+<var>${product_10}</var>
+<arg>${COMPARE_PRODUCT_INDEX_1}</arg>
+<doc>Selects compare checkbox on the product card at given index (1-based)</doc>
+<status status="PASS" start="2026-06-12T18:43:29.546852" elapsed="0.002173"/>
+</kw>
+<kw name="Verify Compare Tray" owner="SearchPage">
+<kw name="Log Step" owner="Common">
+<kw name="Log" owner="BuiltIn">
+<arg>*** STEP: ${message} ***</arg>
+<arg>console=yes</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2026-06-12T18:43:29.552081" elapsed="0.000455"/>
+</kw>
+<arg>Verify compare tray contains ${product_name}</arg>
+<doc>Standardized step logging</doc>
+<status status="PASS" start="2026-06-12T18:43:29.551075" elapsed="0.001724"/>
+</kw>
+<kw name="Verify Compare Tray Is Visible" owner="FlipkartActions">
+<arg>${EXPLICIT_WAIT}</arg>
+<status status="NOT RUN" start="2026-06-12T18:43:29.553321" elapsed="0.000275"/>
+</kw>
+<kw name="Verify Compare Tray Item Count" owner="FlipkartActions">
+<arg>${expected_count}</arg>
+<arg>${EXPLICIT_WAIT}</arg>
+<status status="NOT RUN" start="2026-06-12T18:43:29.553957" elapsed="0.000188"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>Compare tray validated for product: ${product_name} with count ${expected_count}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2026-06-12T18:43:29.554481" elapsed="0.000160"/>
+</kw>
+<arg>${product_10}</arg>
+<arg>1</arg>
+<doc>Verifies floating COMPARE tray is visible with expected item count</doc>
+<status status="PASS" start="2026-06-12T18:43:29.549752" elapsed="0.005016"/>
+</kw>
+<kw name="Select Product For Compare" owner="SearchPage">
+<kw name="Log Step" owner="Common">
+<kw name="Log" owner="BuiltIn">
+<arg>*** STEP: ${message} ***</arg>
+<arg>console=yes</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2026-06-12T18:43:29.556830" elapsed="0.000281"/>
+</kw>
+<arg>Select compare checkbox for product index ${index}</arg>
+<doc>Standardized step logging</doc>
+<status status="PASS" start="2026-06-12T18:43:29.556150" elapsed="0.001142"/>
+</kw>
+<kw name="Select Compare On Card Index" owner="FlipkartActions">
+<var>${product_name}</var>
+<arg>${index}</arg>
+<status status="NOT RUN" start="2026-06-12T18:43:29.557636" elapsed="0.000165"/>
+</kw>
+<return>
+<value>${product_name}</value>
+<status status="PASS" start="2026-06-12T18:43:29.557928" elapsed="0.000053"/>
+</return>
+<var>${product_11}</var>
+<arg>${COMPARE_PRODUCT_INDEX_2}</arg>
+<doc>Selects compare checkbox on the product card at given index (1-based)</doc>
+<status status="PASS" start="2026-06-12T18:43:29.555288" elapsed="0.002789"/>
+</kw>
+<kw name="Verify Compare Tray" owner="SearchPage">
+<kw name="Log Step" owner="Common">
+<kw name="Log" owner="BuiltIn">
+<arg>*** STEP: ${message} ***</arg>
+<arg>console=yes</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2026-06-12T18:43:29.560044" elapsed="0.000268"/>
+</kw>
+<arg>Verify compare tray contains ${product_name}</arg>
+<doc>Standardized step logging</doc>
+<status status="PASS" start="2026-06-12T18:43:29.559157" elapsed="0.001297"/>
+</kw>
+<kw name="Verify Compare Tray Is Visible" owner="FlipkartActions">
+<arg>${EXPLICIT_WAIT}</arg>
+<status status="NOT RUN" start="2026-06-12T18:43:29.560764" elapsed="0.000152"/>
+</kw>
+<kw name="Verify Compare Tray Item Count" owner="FlipkartActions">
+<arg>${expected_count}</arg>
+<arg>${EXPLICIT_WAIT}</arg>
+<status status="NOT RUN" start="2026-06-12T18:43:29.561217" elapsed="0.000177"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>Compare tray validated for product: ${product_name} with count ${expected_count}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2026-06-12T18:43:29.561744" elapsed="0.000162"/>
+</kw>
+<arg>${product_11}</arg>
+<arg>2</arg>
+<doc>Verifies floating COMPARE tray is visible with expected item count</doc>
+<status status="PASS" start="2026-06-12T18:43:29.558494" elapsed="0.003536"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<arg>${PRODUCT_NAME}</arg>
+<arg>${product_10}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="NOT RUN" start="2026-06-12T18:43:29.562394" elapsed="0.000166"/>
+</kw>
+<doc>Select compare checkbox for 10th and 11th phone and verify compare tray</doc>
+<status status="PASS" start="2026-06-12T18:43:29.545802" elapsed="0.016994"/>
+</kw>
+<kw name="Step 7- Open 10th product details page" owner="03SearchPageProductPageCartPageTC">
+<kw name="Get Product Price" owner="SearchPage">
+<kw name="Get Product Price From Card Index" owner="FlipkartActions">
+<var>${price}</var>
+<arg>${index}</arg>
+<status status="NOT RUN" start="2026-06-12T18:43:29.564571" elapsed="0.000160"/>
+</kw>
+<kw name="Store Selected Listing Price" owner="FlipkartActions">
+<arg>${price}</arg>
+<status status="NOT RUN" start="2026-06-12T18:43:29.565036" elapsed="0.000137"/>
+</kw>
+<return>
+<value>${price}</value>
+<status status="PASS" start="2026-06-12T18:43:29.565302" elapsed="0.000057"/>
+</return>
+<var>${listing_price}</var>
+<arg>${CART_PRODUCT_INDEX}</arg>
+<doc>Reads listing price for product card index</doc>
+<status status="PASS" start="2026-06-12T18:43:29.564036" elapsed="0.001422"/>
+</kw>
+<kw name="Open Product Details" owner="SearchPage">
+<kw name="Log Step" owner="Common">
+<kw name="Log" owner="BuiltIn">
+<arg>*** STEP: ${message} ***</arg>
+<arg>console=yes</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2026-06-12T18:43:29.567284" elapsed="0.000346"/>
+</kw>
+<arg>Open product details for index ${index}</arg>
+<doc>Standardized step logging</doc>
+<status status="PASS" start="2026-06-12T18:43:29.566726" elapsed="0.001145"/>
+</kw>
+<kw name="Open Product From Card Index" owner="FlipkartActions">
+<var>${product_name}</var>
+<arg>${index}</arg>
+<arg>${EXPLICIT_WAIT}</arg>
+<status status="NOT RUN" start="2026-06-12T18:43:29.568415" elapsed="0.000305"/>
+</kw>
+<return>
+<value>${product_name}</value>
+<status status="PASS" start="2026-06-12T18:43:29.568963" elapsed="0.000086"/>
+</return>
+<arg>${CART_PRODUCT_INDEX}</arg>
+<doc>Opens product details page for the given index and returns product name</doc>
+<status status="PASS" start="2026-06-12T18:43:29.565943" elapsed="0.003490"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<arg>${LISTING_PRICE}</arg>
+<arg>${listing_price}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="NOT RUN" start="2026-06-12T18:43:29.570124" elapsed="0.000329"/>
+</kw>
+<kw name="Verify Product Page Loaded" owner="ProductPage">
+<kw name="Log Step" owner="Common">
+<kw name="Log" owner="BuiltIn">
+<arg>*** STEP: ${message} ***</arg>
+<arg>console=yes</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2026-06-12T18:43:29.572703" elapsed="0.000268"/>
+</kw>
+<arg>Verify product detail page loaded</arg>
+<doc>Standardized step logging</doc>
+<status status="PASS" start="2026-06-12T18:43:29.572053" elapsed="0.001071"/>
+</kw>
+<kw name="Wait Until Location Contains" owner="SeleniumLibrary">
+<arg>/p/</arg>
+<arg>timeout=${EXPLICIT_WAIT}</arg>
+<doc>Waits until the current URL contains ``expected``.</doc>
+<status status="NOT RUN" start="2026-06-12T18:43:29.573485" elapsed="0.000241"/>
+</kw>
+<if>
+<branch type="IF" condition="'${product_name}' != '${EMPTY}'">
+<kw name="Evaluate" owner="BuiltIn">
+<var>${name_token}</var>
+<arg>'''${product_name}'''.split()[0]</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" start="2026-06-12T18:43:29.574282" elapsed="0.000161"/>
+</kw>
+<kw name="Wait For Page To Contain" owner="WaitUtils">
+<arg>${name_token}</arg>
+<arg>${EXPLICIT_WAIT}</arg>
+<status status="NOT RUN" start="2026-06-12T18:43:29.574745" elapsed="0.000188"/>
+</kw>
+<status status="PASS" start="2026-06-12T18:43:29.573955" elapsed="0.001082"/>
+</branch>
+<branch type="ELSE">
+<kw name="Wait For Product Page Title" owner="FlipkartActions">
+<arg>${EXPLICIT_WAIT}</arg>
+<status status="NOT RUN" start="2026-06-12T18:43:29.575408" elapsed="0.000147"/>
+</kw>
+<status status="PASS" start="2026-06-12T18:43:29.575123" elapsed="0.000515"/>
+</branch>
+<status status="PASS" start="2026-06-12T18:43:29.573914" elapsed="0.001788"/>
+</if>
+<kw name="Log" owner="BuiltIn">
+<arg>Product page loaded successfully</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2026-06-12T18:43:29.575957" elapsed="0.000135"/>
+</kw>
+<arg>${PRODUCT_NAME}</arg>
+<doc>Verifies product detail page is loaded</doc>
+<status status="PASS" start="2026-06-12T18:43:29.571246" elapsed="0.004994"/>
+</kw>
+<doc>Click 10th phone name and open product description page</doc>
+<status status="PASS" start="2026-06-12T18:43:29.563415" elapsed="0.012935"/>
+</kw>
+<kw name="Step 8- Add product to cart and verify Go to Cart button" owner="03SearchPageProductPageCartPageTC">
+<kw name="Add Product To Cart" owner="ProductPage">
+<kw name="Log Step" owner="Common">
+<kw name="Log" owner="BuiltIn">
+<arg>*** STEP: ${message} ***</arg>
+<arg>console=yes</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2026-06-12T18:43:29.578537" elapsed="0.000215"/>
+</kw>
+<arg>Add product to cart</arg>
+<doc>Standardized step logging</doc>
+<status status="PASS" start="2026-06-12T18:43:29.578029" elapsed="0.000845"/>
+</kw>
+<kw name="Wait For Add To Cart Button" owner="FlipkartActions">
+<arg>${EXPLICIT_WAIT}</arg>
+<status status="NOT RUN" start="2026-06-12T18:43:29.579133" elapsed="0.000156"/>
+</kw>
+<kw name="Click Add To Cart On Product Page" owner="FlipkartActions">
+<status status="NOT RUN" start="2026-06-12T18:43:29.579706" elapsed="0.000155"/>
+</kw>
+<doc>Clicks Add to Cart on product page</doc>
+<status status="PASS" start="2026-06-12T18:43:29.577453" elapsed="0.002543"/>
+</kw>
+<kw name="Verify Go To Cart Button" owner="ProductPage">
+<kw name="Log Step" owner="Common">
+<kw name="Log" owner="BuiltIn">
+<arg>*** STEP: ${message} ***</arg>
+<arg>console=yes</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2026-06-12T18:43:29.581699" elapsed="0.000331"/>
+</kw>
+<arg>Verify Go to Cart button is visible</arg>
+<doc>Standardized step logging</doc>
+<status status="PASS" start="2026-06-12T18:43:29.580998" elapsed="0.001216"/>
+</kw>
+<kw name="Verify Go To Cart Button Visible" owner="FlipkartActions">
+<var>${button_text}</var>
+<arg>${EXPLICIT_WAIT}</arg>
+<status status="NOT RUN" start="2026-06-12T18:43:29.582612" elapsed="0.000232"/>
+</kw>
+<kw name="Should Match Regexp" owner="BuiltIn">
+<arg>${button_text}</arg>
+<arg>(?i).*(go to cart|going to cart).*</arg>
+<doc>Fails if ``string`` does not match ``pattern`` as a regular expression.</doc>
+<status status="NOT RUN" start="2026-06-12T18:43:29.583487" elapsed="0.000298"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>Go to Cart button verified: ${button_text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2026-06-12T18:43:29.584300" elapsed="0.000267"/>
+</kw>
+<doc>Verifies CTA changed to Go to Cart / Going to cart</doc>
+<status status="PASS" start="2026-06-12T18:43:29.580391" elapsed="0.004377"/>
+</kw>
+<doc>Click Add to cart and verify button name changed to Going to cart</doc>
+<status status="PASS" start="2026-06-12T18:43:29.576792" elapsed="0.008114"/>
+</kw>
+<kw name="Step 9- Verify product added to cart" owner="03SearchPageProductPageCartPageTC">
+<kw name="Navigate To Cart" owner="ProductPage">
+<kw name="Log Step" owner="Common">
+<kw name="Log" owner="BuiltIn">
+<arg>*** STEP: ${message} ***</arg>
+<arg>console=yes</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2026-06-12T18:43:29.588546" elapsed="0.000278"/>
+</kw>
+<arg>Navigate to cart page</arg>
+<doc>Standardized step logging</doc>
+<status status="PASS" start="2026-06-12T18:43:29.587884" elapsed="0.001099"/>
+</kw>
+<kw name="Navigate To Cart From Product Page" owner="FlipkartActions">
+<status status="NOT RUN" start="2026-06-12T18:43:29.589310" elapsed="0.000109"/>
+</kw>
+<kw name="Wait For Cart Page Loaded" owner="FlipkartActions">
+<arg>${EXPLICIT_WAIT}</arg>
+<status status="NOT RUN" start="2026-06-12T18:43:29.589694" elapsed="0.000151"/>
+</kw>
+<doc>Navigates to cart from product page</doc>
+<status status="PASS" start="2026-06-12T18:43:29.586729" elapsed="0.003229"/>
+</kw>
+<kw name="Verify Product Added To Cart" owner="CartPage">
+<kw name="Log Step" owner="Common">
+<kw name="Log" owner="BuiltIn">
+<arg>*** STEP: ${message} ***</arg>
+<arg>console=yes</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2026-06-12T18:43:29.591842" elapsed="0.000256"/>
+</kw>
+<arg>Verify product added to cart: ${product_name}</arg>
+<doc>Standardized step logging</doc>
+<status status="PASS" start="2026-06-12T18:43:29.591276" elapsed="0.000982"/>
+</kw>
+<kw name="Wait For Cart Page Loaded" owner="FlipkartActions">
+<arg>${EXPLICIT_WAIT}</arg>
+<status status="NOT RUN" start="2026-06-12T18:43:29.592597" elapsed="0.000153"/>
+</kw>
+<kw name="Verify Product In Cart" owner="FlipkartActions">
+<arg>${product_name}</arg>
+<arg>${EXPLICIT_WAIT}</arg>
+<status status="NOT RUN" start="2026-06-12T18:43:29.593017" elapsed="0.000152"/>
+</kw>
+<arg>${PRODUCT_NAME}</arg>
+<doc>Verifies selected product is present in cart</doc>
+<status status="PASS" start="2026-06-12T18:43:29.590567" elapsed="0.002726"/>
+</kw>
+<doc>Navigate to cart and verify selected product is present</doc>
+<status status="PASS" start="2026-06-12T18:43:29.585620" elapsed="0.007768"/>
+</kw>
+<kw name="Step 10- Verify cart total amount matches listing price" owner="03SearchPageProductPageCartPageTC">
+<kw name="Verify Cart Amount" owner="CartPage">
+<kw name="Log Step" owner="Common">
+<kw name="Log" owner="BuiltIn">
+<arg>*** STEP: ${message} ***</arg>
+<arg>console=yes</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2026-06-12T18:43:29.595448" elapsed="0.000219"/>
+</kw>
+<arg>Verify cart amount matches listing price</arg>
+<doc>Standardized step logging</doc>
+<status status="PASS" start="2026-06-12T18:43:29.594967" elapsed="0.000834"/>
+</kw>
+<kw name="Wait For Cart Page Loaded" owner="FlipkartActions">
+<arg>${EXPLICIT_WAIT}</arg>
+<status status="NOT RUN" start="2026-06-12T18:43:29.596088" elapsed="0.000164"/>
+</kw>
+<if>
+<branch type="IF" condition="'${expected_price}' == '${EMPTY}'">
+<kw name="Get Stored Listing Price" owner="FlipkartActions">
+<var>${listing_price}</var>
+<status status="NOT RUN" start="2026-06-12T18:43:29.596725" elapsed="0.000098"/>
+</kw>
+<status status="PASS" start="2026-06-12T18:43:29.596448" elapsed="0.000456"/>
+</branch>
+<branch type="ELSE">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${listing_price}</var>
+<arg>${expected_price}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2026-06-12T18:43:29.597256" elapsed="0.000129"/>
+</kw>
+<status status="PASS" start="2026-06-12T18:43:29.596975" elapsed="0.000530"/>
+</branch>
+<status status="PASS" start="2026-06-12T18:43:29.596410" elapsed="0.001162"/>
+</if>
+<kw name="Get Cart Total Amount Text" owner="FlipkartActions">
+<var>${cart_total}</var>
+<status status="NOT RUN" start="2026-06-12T18:43:29.597824" elapsed="0.000091"/>
+</kw>
+<kw name="Prices Should Be Equal" owner="FlipkartActions">
+<arg>${listing_price}</arg>
+<arg>${cart_total}</arg>
+<status status="NOT RUN" start="2026-06-12T18:43:29.598169" elapsed="0.000170"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>Cart amount verified. Listing=${listing_price}, Total=${cart_total}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2026-06-12T18:43:29.598611" elapsed="0.000184"/>
+</kw>
+<arg>${LISTING_PRICE}</arg>
+<doc>Verifies cart total matches stored listing price</doc>
+<status status="PASS" start="2026-06-12T18:43:29.594418" elapsed="0.004499"/>
+</kw>
+<doc>Verify Total Amount on cart page matches price from products list page</doc>
+<status status="PASS" start="2026-06-12T18:43:29.593758" elapsed="0.005311"/>
+</kw>
+<kw name="Take Screenshot On Failure" owner="Common" type="TEARDOWN">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<arg>${SCREENSHOT_DIR}${/}failure_{index}.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="NOT RUN" start="2026-06-12T18:43:29.601298" elapsed="0.000209"/>
+</kw>
+<var>${status}</var>
+<arg>Capture Page Screenshot</arg>
+<arg>${SCREENSHOT_DIR}${/}failure_{index}.png</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="NOT RUN" start="2026-06-12T18:43:29.600740" elapsed="0.000906"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Log" owner="BuiltIn">
+<arg>Screenshot capture failed</arg>
+<arg>WARN</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2026-06-12T18:43:29.603011" elapsed="0.000389"/>
+</kw>
+<arg>not ${status}</arg>
+<arg>Log</arg>
+<arg>Screenshot capture failed</arg>
+<arg>WARN</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="NOT RUN" start="2026-06-12T18:43:29.602371" elapsed="0.001360"/>
+</kw>
+<doc>Captures screenshot when a step fails; used in teardown hooks</doc>
+<status status="PASS" start="2026-06-12T18:43:29.599982" elapsed="0.004156"/>
+</kw>
+<doc>SearchPage compare, ProductPage add to cart, CartPage verify product and price</doc>
+<tag>cartpage</tag>
+<tag>e2e</tag>
+<tag>flipkart</tag>
+<tag>productpage</tag>
+<tag>regression</tag>
+<tag>searchpage</tag>
+<tag>smoke</tag>
+<status status="PASS" start="2026-06-12T18:43:29.542523" elapsed="0.061976"/>
+</test>
+<test id="s1-t4" name="04 CartPage - Increase Quantity Remove Product And Verify Empty Cart" line="52">
+<kw name="Set Timestamp" owner="Common" type="SETUP">
+<kw name="Get Time" owner="BuiltIn">
+<var>${timestamp}</var>
+<arg>epoch</arg>
+<doc>Returns the given time in the requested format.</doc>
+<status status="NOT RUN" start="2026-06-12T18:43:29.608038" elapsed="0.000290"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>Test started at epoch: ${timestamp}</arg>
+<arg>console=yes</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2026-06-12T18:43:29.608724" elapsed="0.000232"/>
+</kw>
+<doc>Logs test start timestamp for traceability</doc>
+<status status="PASS" start="2026-06-12T18:43:29.607354" elapsed="0.001734"/>
+</kw>
+<kw name="Step 11- Increase quantity and verify toast message" owner="04CartPageTC">
+<kw name="Increase Product Quantity" owner="CartPage">
+<kw name="Log Step" owner="Common">
+<kw name="Log" owner="BuiltIn">
+<arg>*** STEP: ${message} ***</arg>
+<arg>console=yes</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2026-06-12T18:43:29.611247" elapsed="0.000240"/>
+</kw>
+<arg>Increase product quantity</arg>
+<doc>Standardized step logging</doc>
+<status status="PASS" start="2026-06-12T18:43:29.610776" elapsed="0.000868"/>
+</kw>
+<kw name="Wait For Cart Page Loaded" owner="FlipkartActions">
+<arg>${EXPLICIT_WAIT}</arg>
+<status status="NOT RUN" start="2026-06-12T18:43:29.611929" elapsed="0.000144"/>
+</kw>
+<kw name="Increase Cart Product Quantity" owner="FlipkartActions">
+<var>${new_quantity}</var>
+<arg>${increase_by}</arg>
+<status status="NOT RUN" start="2026-06-12T18:43:29.612354" elapsed="0.000132"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>0.5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2026-06-12T18:43:29.612744" elapsed="0.000116"/>
+</kw>
+<return>
+<value>${new_quantity}</value>
+<status status="PASS" start="2026-06-12T18:43:29.612969" elapsed="0.000052"/>
+</return>
+<var>${new_quantity}</var>
+<arg>${QTY_INCREASE_BY}</arg>
+<doc>Increases cart quantity by given amount from current Qty dropdown value</doc>
+<status status="PASS" start="2026-06-12T18:43:29.610188" elapsed="0.002923"/>
+</kw>
+<kw name="Verify Quantity Update Toast" owner="CartPage">
+<kw name="Log Step" owner="Common">
+<kw name="Log" owner="BuiltIn">
+<arg>*** STEP: ${message} ***</arg>
+<arg>console=yes</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2026-06-12T18:43:29.617341" elapsed="0.000769"/>
+</kw>
+<arg>Verify quantity update toast for ${product_name}</arg>
+<doc>Standardized step logging</doc>
+<status status="PASS" start="2026-06-12T18:43:29.614116" elapsed="0.004299"/>
+</kw>
+<kw name="Verify Quantity Change Message" owner="FlipkartActions">
+<arg>${product_name}</arg>
+<arg>${quantity}</arg>
+<arg>${EXPLICIT_WAIT}</arg>
+<status status="NOT RUN" start="2026-06-12T18:43:29.619061" elapsed="0.000302"/>
+</kw>
+<arg>${PRODUCT_NAME}</arg>
+<arg>${new_quantity}</arg>
+<doc>Verifies quantity update toast with dynamic product name and quantity</doc>
+<status status="PASS" start="2026-06-12T18:43:29.613507" elapsed="0.006030"/>
+</kw>
+<doc>Increase product qty by 2 and verify quantity update pop-up message</doc>
+<status status="PASS" start="2026-06-12T18:43:29.609642" elapsed="0.010011"/>
+</kw>
+<kw name="Step 12- Remove product and verify confirmation popup" owner="04CartPageTC">
+<kw name="Remove Product" owner="CartPage">
+<kw name="Log Step" owner="Common">
+<kw name="Log" owner="BuiltIn">
+<arg>*** STEP: ${message} ***</arg>
+<arg>console=yes</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2026-06-12T18:43:29.623838" elapsed="0.000308"/>
+</kw>
+<arg>Click remove product</arg>
+<doc>Standardized step logging</doc>
+<status status="PASS" start="2026-06-12T18:43:29.623251" elapsed="0.001146"/>
+</kw>
+<kw name="Wait For Cart Page Loaded" owner="FlipkartActions">
+<arg>${EXPLICIT_WAIT}</arg>
+<status status="NOT RUN" start="2026-06-12T18:43:29.624848" elapsed="0.000246"/>
+</kw>
+<kw name="Click Cart Remove Button" owner="FlipkartActions">
+<status status="NOT RUN" start="2026-06-12T18:43:29.625452" elapsed="0.000105"/>
+</kw>
+<doc>Clicks Remove on cart item</doc>
+<status status="PASS" start="2026-06-12T18:43:29.622335" elapsed="0.003323"/>
+</kw>
+<kw name="Verify Remove Popup" owner="CartPage">
+<kw name="Log Step" owner="Common">
+<kw name="Log" owner="BuiltIn">
+<arg>*** STEP: ${message} ***</arg>
+<arg>console=yes</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2026-06-12T18:43:29.627364" elapsed="0.000230"/>
+</kw>
+<arg>Verify remove confirmation popup</arg>
+<doc>Standardized step logging</doc>
+<status status="PASS" start="2026-06-12T18:43:29.626848" elapsed="0.000882"/>
+</kw>
+<kw name="Verify Remove Confirmation Popup" owner="FlipkartActions">
+<arg>${EXPLICIT_WAIT}</arg>
+<status status="NOT RUN" start="2026-06-12T18:43:29.628006" elapsed="0.000141"/>
+</kw>
+<doc>Verifies remove confirmation popup contains Cancel and Remove</doc>
+<status status="PASS" start="2026-06-12T18:43:29.626128" elapsed="0.002146"/>
+</kw>
+<doc>Click remove and verify pop-up with Cancel and Remove buttons</doc>
+<status status="PASS" start="2026-06-12T18:43:29.620809" elapsed="0.007556"/>
+</kw>
+<kw name="Step 13- Confirm remove and verify removal message" owner="04CartPageTC">
+<kw name="Confirm Remove Product" owner="CartPage">
+<kw name="Log Step" owner="Common">
+<kw name="Log" owner="BuiltIn">
+<arg>*** STEP: ${message} ***</arg>
+<arg>console=yes</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2026-06-12T18:43:29.630159" elapsed="0.000229"/>
+</kw>
+<arg>Confirm remove product</arg>
+<doc>Standardized step logging</doc>
+<status status="PASS" start="2026-06-12T18:43:29.629721" elapsed="0.000792"/>
+</kw>
+<kw name="Confirm Cart Remove" owner="FlipkartActions">
+<status status="NOT RUN" start="2026-06-12T18:43:29.630784" elapsed="0.000090"/>
+</kw>
+<doc>Confirms product removal from cart</doc>
+<status status="PASS" start="2026-06-12T18:43:29.629235" elapsed="0.001724"/>
+</kw>
+<kw name="Verify Removed Product Success Message" owner="CartPage">
+<kw name="Log Step" owner="Common">
+<kw name="Log" owner="BuiltIn">
+<arg>*** STEP: ${message} ***</arg>
+<arg>console=yes</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2026-06-12T18:43:29.632455" elapsed="0.000613"/>
+</kw>
+<arg>Verify product removed message for ${product_name}</arg>
+<doc>Standardized step logging</doc>
+<status status="PASS" start="2026-06-12T18:43:29.631821" elapsed="0.001637"/>
+</kw>
+<kw name="Verify Product Removed Message" owner="FlipkartActions">
+<arg>${product_name}</arg>
+<arg>${EXPLICIT_WAIT}</arg>
+<status status="NOT RUN" start="2026-06-12T18:43:29.634295" elapsed="0.000334"/>
+</kw>
+<arg>${PRODUCT_NAME}</arg>
+<doc>Verifies product removed success toast/message</doc>
+<status status="PASS" start="2026-06-12T18:43:29.631271" elapsed="0.003546"/>
+</kw>
+<doc>Click Remove on confirmation pop-up and verify product removed message</doc>
+<status status="PASS" start="2026-06-12T18:43:29.628741" elapsed="0.006204"/>
+</kw>
+<kw name="Step 14- Verify empty cart message" owner="04CartPageTC">
+<kw name="Verify Empty Cart Message" owner="CartPage">
+<kw name="Log Step" owner="Common">
+<kw name="Log" owner="BuiltIn">
+<arg>*** STEP: ${message} ***</arg>
+<arg>console=yes</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2026-06-12T18:43:29.638544" elapsed="0.000436"/>
+</kw>
+<arg>Verify empty cart message: Missing Cart items?</arg>
+<doc>Standardized step logging</doc>
+<status status="PASS" start="2026-06-12T18:43:29.637410" elapsed="0.001850"/>
+</kw>
+<kw name="Verify Empty Cart Message" owner="FlipkartActions">
+<arg>${EXPLICIT_WAIT}</arg>
+<status status="NOT RUN" start="2026-06-12T18:43:29.639934" elapsed="0.000311"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>Flipkart E2E flow completed successfully</arg>
+<arg>console=yes</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2026-06-12T18:43:29.640774" elapsed="0.000244"/>
+</kw>
+<doc>Final pass check — empty cart shows Missing Cart items? after removal</doc>
+<status status="PASS" start="2026-06-12T18:43:29.636286" elapsed="0.004879"/>
+</kw>
+<doc>Final step — suite passes when Missing Cart items? screen is displayed</doc>
+<status status="PASS" start="2026-06-12T18:43:29.635536" elapsed="0.005779"/>
+</kw>
+<kw name="Take Screenshot On Failure" owner="Common" type="TEARDOWN">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<arg>${SCREENSHOT_DIR}${/}failure_{index}.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="NOT RUN" start="2026-06-12T18:43:29.643187" elapsed="0.000226"/>
+</kw>
+<var>${status}</var>
+<arg>Capture Page Screenshot</arg>
+<arg>${SCREENSHOT_DIR}${/}failure_{index}.png</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="NOT RUN" start="2026-06-12T18:43:29.642754" elapsed="0.000792"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Log" owner="BuiltIn">
+<arg>Screenshot capture failed</arg>
+<arg>WARN</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2026-06-12T18:43:29.644310" elapsed="0.000178"/>
+</kw>
+<arg>not ${status}</arg>
+<arg>Log</arg>
+<arg>Screenshot capture failed</arg>
+<arg>WARN</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="NOT RUN" start="2026-06-12T18:43:29.643909" elapsed="0.000686"/>
+</kw>
+<doc>Captures screenshot when a step fails; used in teardown hooks</doc>
+<status status="PASS" start="2026-06-12T18:43:29.641964" elapsed="0.002751"/>
+</kw>
+<doc>CartPage: update quantity, remove product, confirm removal, verify empty cart</doc>
+<tag>cartpage</tag>
+<tag>e2e</tag>
+<tag>flipkart</tag>
+<tag>regression</tag>
+<tag>smoke</tag>
+<status status="PASS" start="2026-06-12T18:43:29.605829" elapsed="0.038999"/>
+</test>
+<kw name="Close All Browsers" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="NOT RUN" start="2026-06-12T18:43:29.646102" elapsed="0.000171"/>
+</kw>
+<status status="PASS" start="2026-06-12T18:43:28.890033" elapsed="0.756353"/>
+</suite>
+<statistics>
+<total>
+<stat pass="4" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="2" fail="0" skip="0">cartpage</stat>
+<stat pass="4" fail="0" skip="0">e2e</stat>
+<stat pass="4" fail="0" skip="0">flipkart</stat>
+<stat pass="1" fail="0" skip="0">homepage</stat>
+<stat pass="1" fail="0" skip="0">productpage</stat>
+<stat pass="4" fail="0" skip="0">regression</stat>
+<stat pass="2" fail="0" skip="0">searchpage</stat>
+<stat pass="4" fail="0" skip="0">smoke</stat>
+</tag>
+<suite>
+<stat pass="4" fail="0" skip="0" id="s1" name="FlipkartTestSuite">FlipkartTestSuite</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

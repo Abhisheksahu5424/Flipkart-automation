@@ -1,0 +1,10 @@
+Output/
+Testsuite/report.html
+Testsuite/log.html
+Testsuite/output.xml
+Testsuite/*.png
+*.pyc
+__pycache__/
+.venv/
+venv/
+.idea/

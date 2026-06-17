@@ -1,0 +1,6 @@
+{
+  "robot.variables": {
+    "rbt_env": "qa",
+    "rbt_usr": "Default"
+  }
+}
